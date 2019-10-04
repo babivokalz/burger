@@ -55,11 +55,11 @@ var orm = {
   },
   updateOne: function(table, objColVals, condition, cb) {
     var dbQuery =
-      "UPDATE" +
+      "UPDATE " +
       table +
-      "SET " +
+      " SET " +
       translateSql(objColVals) +
-      "WHERE " +
+      " WHERE " +
       condition;
 
     console.log(dbQuery);
@@ -71,7 +71,7 @@ var orm = {
     });
   },
   deleteOne: function(table, condition, cb) {
-    var dbQuery = "DELETE FROM" + table + "WHERE" + condition;
+    var dbQuery = "DELETE FROM " + table + " WHERE " + condition;
 
     console.log(dbQuery);
     connection.query(dbQuery, function(err, res) {

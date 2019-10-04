@@ -22,6 +22,7 @@ $(function() {
     event.preventDefault();
 
     var id = $(this).data("id");
+    console.log(this);
     var devouredState = {
       devoured: 1
     };
