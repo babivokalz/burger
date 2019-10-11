@@ -35,18 +35,16 @@ var orm = {
     });
   },
   insertOne: function(table, cols, vals, cb) {
-    var dbQuery =
-      "INSERT INTO " +
-      table +
-      " (" +
-      cols.toString() +
-      ") " +
-      "VALUES (" +
-      createQmarks(vals.length) +
-      ") ";
+    var dbQuery = "INSERT INTO " + table;
+    dbQuery += " (";
+    dbQuery += cols.toString();
+    dbQuery += ") ";
+    dbQuery += "VALUES (";
+    dbQuery += createQmarks(vals.length);
+    dbQuery += ") ";
 
     console.log(dbQuery);
-    connection.query(dbQuery, function(err, res) {
+    connection.query(dbQuery, vals, function(err, res) {
       if (err) {
         throw err;
       }
